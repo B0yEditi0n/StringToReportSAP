@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        textarea {
+            resize: none;
+            height: 600px;
+            width: 600px;
+        }
+        body{
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <div style="display:  flex; flex-direction: row; flex-wrap: wrap; gap: 50px;">
+        <div>
+            <p>Texto em String</p>
+            <textarea id="txt"></textarea>
+        </div>
+        <div>
+            <p>Texto Convertido</p>
+            <textarea id="b64Convert"></textarea>
+        </div>
+    </div>
+    </div>
+    <div style="height: 20px;"></div>
+    <button id="copy" style="align-self: center;">Copiar Texto</button>
+</body>
+<script>
+    document.getElementById("copy").addEventListener("click", function(){
+        // Get the text field
+        var copyText = document.getElementById("b64Convert").value;
+
+        // Alert the copied text
+        alert("Texto Copiado");
+    })
+
+    document.getElementById("txt").addEventListener('input', function(){
+        var valorTxt = document.getElementById("txt").value
+
+        const Encoder = new TextEncoder();
+
+        var b64 = window.btoa(unescape(encodeURIComponent( valorTxt )))
+        
+        var b64Break = '';
+        for(var i = 0; i < b64.length; i+=100){
+            b64Break += '*' + b64.slice(i, i + 100) + '\n'
+        }
+
+        document.getElementById("b64Convert").value = b64Break;
+        console.log(b64Break)
+    })
+</script>
+</html>
