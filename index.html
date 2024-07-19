@@ -35,7 +35,7 @@
     document.getElementById("copy").addEventListener("click", function(){
         // Get the text field
         var copyText = document.getElementById("b64Convert").value;
-
+        navigator.clipboard.writeText(copyText);
         // Alert the copied text
         alert("Texto Copiado");
     })
@@ -55,7 +55,6 @@
         }
 
         document.getElementById("b64Convert").value = b64Break;
-        console.log(b64Break)
     })
 </script>
 </html>
