@@ -48,7 +48,7 @@
         var b64 = window.btoa(unescape(encodeURIComponent( valorTxt )))
         
         var b64Break = '';
-	var constanteMaxLinha = '250'
+	      var constanteMaxLinha = 250
 
         for(var i = 0; i < b64.length; i+=constanteMaxLinha){
             b64Break += '*' + b64.slice(i, i + constanteMaxLinha) + '\n'
