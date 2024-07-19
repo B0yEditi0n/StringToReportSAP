@@ -48,8 +48,10 @@
         var b64 = window.btoa(unescape(encodeURIComponent( valorTxt )))
         
         var b64Break = '';
-        for(var i = 0; i < b64.length; i+=100){
-            b64Break += '*' + b64.slice(i, i + 100) + '\n'
+	var constanteMaxLinha = '250'
+
+        for(var i = 0; i < b64.length; i+=constanteMaxLinha){
+            b64Break += '*' + b64.slice(i, i + constanteMaxLinha) + '\n'
         }
 
         document.getElementById("b64Convert").value = b64Break;
